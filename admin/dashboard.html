@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Dashboard</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../css/dashboard.css">
+    <link rel="stylesheet" href="../css/sidebar.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css">
+    <link rel="icon" href="./images/favicon.ico" type="image/ico" sizes="16x16">
+
+</head>
+
+<body>
+    <div class="layout_container">
+        <div class="sidebar">
+            <ul>
+                <a href="">
+                    <li class="logo"><img src="./images/logo_2.svg" alt=""></li>
+                </a>
+
+                <li class="active_title">
+                    <a href="dashboard.html">
+                        <span class="ki_icon"><img src="./images/dashboard_black.svg" alt="" data-bs-toggle="tooltip"
+                                data-bs-placement="right" title="Dashboard"> </span>
+                        <span class="ki_tittle">
+                            Dashboard
+                        </span>
+                    </a>
+                </li>
+                </a>
+
+                <li>
+                    <a href="clientReview.html">
+                        <span class="ki_icon"><img src="./images/setting_black.svg" alt="" data-bs-toggle="tooltip"
+                                data-bs-placement="right" title="Client Review"></span>
+                        <span class="ki_tittle">
+                            Client Review
+                        </span>
+                    </a>
+                </li>
+                <li>
+                    <a href="setting.html">
+                        <span class="ki_icon"><img src="./images/setting_black.svg" alt="" data-bs-toggle="tooltip"
+                                data-bs-placement="right" title="Settings"></span>
+                        <span class="ki_tittle">
+                            Settings
+                        </span>
+                    </a>
+                </li>
+            </ul>
+
+            <ul>
+                <li class="logout">
+                    <a href="" type="button" class="btn border-1 p-0 w-100 btn_card" data-toggle="modal"
+                        data-target="#logOut">
+                        <span class="ki_icon"><img src="./images/logout.svg" alt="Logout" data-bs-toggle="tooltip"
+                                data-bs-placement="right" title="Logout"> </span>
+                        <span class="ki_tittle">
+                            Logout
+                        </span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <!---------------------------Main--------------------------->
+        <div class="main_container">
+            <div class="header">
+                <div class="d-flex">
+                    <div class="toggle" onclick="togglemenu()"><img src="./images/toggle_bar.svg" alt=""></div>
+                    <div class="search">
+                        <label for="">
+                            <input type="search" placeholder="Search">
+                            <img class="search_icon" src="./images/search.svg" alt="">
+                        </label>
+                    </div>
+                </div>
+                <div class="user">
+                    <!-- User Details -->
+                    <div class="user_details"><span class="user__name">Admin Name</span>
+                        <div class="profile_circle" onclick="myProfile()"></div>
+                    </div>
+                    <div class="ki_notify" onclick="myNotification()"><img src="./images/notification.svg " alt=" ">
+                    </div>
+                </div>
+            </div>
+
+            <!--------------------------------------- Sub Container --------------------------------------->
+            <div class="submain_container dashboard_container">
+                <div class="container ">
+                    
+                    <!----------------------------------------- Quick Stats ----------------------------------------->
+                    <div class="row">
+                        <h5 class="mb-4">Quick Stats</h5>
+                        <div class="col-xl-6 bg-white p-5 ki_radius ki_shadow total_reservation__stats">
+                            <label class="stats_head" for="">Total Reservations</label>
+                            <div class="d-flex justify-content-between">
+                                <div class="accepted">
+                                    <label for="">Accepted</label>
+                                    <span>28,345</span>
+                                </div>
+                                <div class="pending">
+                                    <label for="">Pending</label>
+                                    <span>28,345</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-1"></div>
+                        <div class="col-xl-5 bg-white p-5 ki_radius ki_shadow incoming_order_stats">
+                            <label class="stats_head" for="">Incoming Orders</label>
+                            <span>120</span>
+                        </div>
+                        <div class="col-12 bg-white p-3 ki_radius ki_shadow mt-4 mb-4 ki__chart">
+                            <img src="./images/order_chart.png" alt="">
+                        </div>
+                    </div>
+                    <!----------------------------------------- Sales statistics ----------------------------------------->
+                    <div class="row">
+                        <h5 class="mt-4 mb-4">Sales Stats</h5>
+                        <div class="col-xl-6 bg-white p-5 ki_radius ki_shadow total_reservation__stats">
+                            <label class="stats_head" for="">Total Reservations</label>
+                            <div class="d-flex justify-content-between">
+                                <div class="accepted">
+                                    <label for="">Accepted</label>
+                                    <span>28,345</span>
+                                </div>
+                                <div class="pending">
+                                    <label for="">Pending</label>
+                                    <span>28,345</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-1"></div>
+                        <div class="col-xl-5 bg-white p-5 ki_radius ki_shadow incoming_order_stats">
+                            <label class="stats_head" for="">Incoming Orders</label>
+                            <span>120</span>
+                        </div>
+                        <div class="col-12 bg-white p-3 ki_radius ki_shadow mt-4 mb-4 ki__chart">
+                            <img src="./images/sales_chart.png" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!------------------------------------- Notification Section ----------------------------------->
+            <div class="notify_container " id="myNotification" style="display: none!important;">
+                <div class="new_notify">
+                    <img src="./images/swiggy.svg" alt="">
+                    <span>New</span>
+                    <span>Order Form Swiggy!</span>
+                </div>
+                <div class="new_notify">
+                    <img src="./images/mcdonalds.svg" alt="">
+                    <span>New</span>
+                    <span>Order Form Mcdonald's!</span>
+                </div>
+                <div class="new_notify">
+                    <img src="./images/swiggy.svg" alt="">
+                    <span>New</span>
+                    <span>Order Form Swiggy!</span>
+                </div>
+                <div class="new_notify">
+                    <img src="./images/domino.svg" alt="">
+                    <span>New</span>
+                    <span>Order Form Domino's!</span>
+                </div>
+                <div class="new_notify">
+                    <img src="./images/swiggy.svg" alt="">
+                    <span>New</span>
+                    <span>Order Form Swiggy!</span>
+                </div>
+            </div>
+            <!------------------------------------- Profile Section ----------------------------------->
+            <div class="profile_container " id="myProfile" style="display: none!important;">
+                <div class="profile_head">
+                    <div class="user_name">John Doe</div>
+                </div>
+                <div class="profie_stats">
+                    <div class="row">
+                        <div class="col-12 profie_text"><label for="">Email</label><span>johndoe@gmail.com</span></div>
+                        <div class="col-12 profie_text"><label for="">Details</label><span>Lorem Ipsum is simply dummy
+                                text of the printing and typesetting industry. Lorem Ipsum has been the industry's
+                                standard dummy text ever since the 1500s, when an unknown printer took a galley of type
+                                and scrambled it to make a type specimen book.</span></div>
+                        <div class="col-4 mt-3">
+                            <a href="editprofile.html" class="btn anchor_btn text-white px-5 bg-info border-0">Edit</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Modal Logout Order Popup -->
+            <div class="modal fade" id="logOut">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">
+                                Logout</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">
+                                    ×</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <img src="./images/logout_popup_bg.svg" alt="">
+                            <span> Are you sure you want to logout?</span>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn ki_btn btn-secondary" data-dismiss="modal">
+                                Yes</button>
+                            <button type="button" class="btn ki_btn text-white bg-dark" data-dismiss="modal">
+                                No</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <script src="./js/dashboard.js" async defer></script>
+    <script src="./js/sidebar.js" async defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/bootstrap-select.min.js"></script>
+</body>
+
+</html>
